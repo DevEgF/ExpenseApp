@@ -1,4 +1,4 @@
-package ui
+package ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -11,15 +11,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import data.model.Expense
-import data.model.ExpenseManager
-import getColorsTheme
+import ui.theme.getColorsTheme
+import presentation.ExpenseUiState
 import ui.component.AllExpensesHeader
 import ui.component.ExpenseTotalHeader
 import ui.component.ExpensesItem
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ExpensesScreen(onExpenseClick: (expense: Expense) -> Unit) {
+fun ExpensesScreen(uiState: ExpenseUiState, onExpenseClick: (expense: Expense) -> Unit) {
     val colors = getColorsTheme()
 
     LazyColumn(
@@ -30,11 +30,11 @@ fun ExpensesScreen(onExpenseClick: (expense: Expense) -> Unit) {
             Column(
                 modifier = Modifier.background(colors.backgroundColor)
             ) {
-                ExpenseTotalHeader(1023.3)
+                ExpenseTotalHeader(uiState.total)
                 AllExpensesHeader()
             }
         }
-        items(ExpenseManager.fakeExpenseList) { expense ->
+        items(uiState.expense) { expense ->
             ExpensesItem(expense = expense, onExpenseClick = onExpenseClick)
         }
     }
