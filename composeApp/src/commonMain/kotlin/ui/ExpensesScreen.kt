@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import getColorsTheme
+import ui.component.AllExpensesHeader
+import ui.component.ExpenseTotalHeader
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -25,8 +27,8 @@ fun ExpensesScreen(){
             Column(
                 modifier = Modifier.background(colors.backgroundColor)
             ) {
-                //Composables
-
+                ExpenseTotalHeader(1023.3)
+                AllExpensesHeader()
             }
         }
         items(emptyList<String>()){

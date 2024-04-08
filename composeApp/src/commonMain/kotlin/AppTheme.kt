@@ -25,6 +25,7 @@ fun getColorsTheme(): DarkModeColors {
     val purple = Color(0xFF6A66FF)
     val colorExpenseItem = if(isDarkMode) Color(0xFF090808) else Color(0xFFF1F1F1)
     val backgroundColor = if(isDarkMode) Color(0xFF1E1C1C) else Color.White
+    val cardColor = if(isDarkMode) purple else Color.Black
     val textColor = if(isDarkMode) Color.White else Color.Black
     val addIconColor = if(isDarkMode) purple else Color.Black
     val colorArrowRound = if(isDarkMode) purple else Color.Gray.copy(alpha = .2f)
@@ -33,6 +34,7 @@ fun getColorsTheme(): DarkModeColors {
         purple,
         colorExpenseItem,
         backgroundColor,
+        cardColor,
         textColor,
         addIconColor,
         colorArrowRound
@@ -43,6 +45,7 @@ data class DarkModeColors(
     val purple: Color,
     val colorExpenseItem: Color,
     val backgroundColor: Color,
+    val cardColor: Color,
     val textColor: Color,
     val addIconColor: Color,
     val colorArrowRound: Color
