@@ -17,6 +17,8 @@ fun App() {
             ){
                 Text(text = "Bem vindos", color = colors.textColor)
                 Text(text = "Curso kotlin multiplataforma", color = colors.textColor)
+                Text(text = "Curso kotlin multiplataforma", color = colors.textColor)
+                Text(text = "Curso kotlin multiplataforma", color = colors.textColor)
             }
         }
     }
