@@ -22,33 +22,33 @@ class ExpensesViewModel(
         getAllExpense()
     }
 
-    private fun getAllExpense() {
+    fun getAllExpense() {
         viewModelScope.launch {
             updateState()
         }
     }
 
-    private fun addExpense(expense: Expense) {
-        viewModelScope.launch {
-            expenseRepository.addExpense(expense)
-            updateState()
-        }
-    }
-
-    private fun editExpense(expense: Expense) {
+    fun addExpense(expense: Expense) {
         viewModelScope.launch {
             expenseRepository.addExpense(expense)
             updateState()
         }
     }
 
-    private fun getExpenseWithID(id: Long): Expense {
+    fun editExpense(expense: Expense) {
+        viewModelScope.launch {
+            expenseRepository.addExpense(expense)
+            updateState()
+        }
+    }
+
+    fun getExpenseWithID(id: Long): Expense {
         return allExpense.first {
             it.id == id
         }
     }
 
-    private fun deleteExpense(expense: Expense) {
+    fun deleteExpense(expense: Expense) {
         viewModelScope.launch {
             expenseRepository.deleteExpense(expense)
             updateState()
