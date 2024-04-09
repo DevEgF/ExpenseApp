@@ -46,6 +46,12 @@ kotlin {
             api(libs.precompose.koin)
         }
 
+        @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+        commonTest.dependencies {
+            implementation(libs.ui.test.junit4)
+            implementation(libs.kotlin.test)
+        }
+
         iosMain.dependencies {
             //iOS dependencies
         }

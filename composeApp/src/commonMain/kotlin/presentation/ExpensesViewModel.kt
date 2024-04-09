@@ -1,6 +1,7 @@
 package presentation
 
 import data.model.Expense
+import data.model.ExpenseCategory
 import domain.repository.ExpenseRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -53,6 +54,10 @@ class ExpensesViewModel(
             expenseRepository.deleteExpense(expense)
             updateState()
         }
+    }
+
+    fun getCategories(): List<ExpenseCategory> {
+        return expenseRepository.getCategory()
     }
 
     private fun updateState() {

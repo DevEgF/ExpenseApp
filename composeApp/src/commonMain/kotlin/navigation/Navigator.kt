@@ -12,6 +12,7 @@ import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.path
 import moe.tlaster.precompose.viewmodel.viewModel
 import presentation.ExpensesViewModel
+import ui.screens.ExpensesDetailScreen
 import ui.screens.ExpensesScreen
 import ui.theme.getColorsTheme
 
@@ -38,13 +39,23 @@ fun Navigation(navigator: Navigator) {
             }
         }
 
-        scene(route = "/addExpenses/{id}") {
+        scene(route = "/addExpenses/{id}?") {
             val idFromPath = it.path<Long>("id")
             val isAddExpense = idFromPath?.let {id->
                 viewModel.getExpenseWithID(id)
             }
 
-            // ExpenseDetailsScreen
+            ExpensesDetailScreen(
+                expenseToEdit = isAddExpense,
+                categoryList = viewModel.getCategories()
+            ) { expense ->
+                if(isAddExpense == null) {
+                    viewModel.addExpense(expense)
+                } else {
+                    viewModel.editExpense(expense)
+                }
+                navigator.popBackStack()
+            }
         }
     }
 }

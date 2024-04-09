@@ -16,6 +16,7 @@ junit = "4.13.2"
 kotlin = "1.9.22"
 precompose = ".1.5.10"
 precomposeMolecule = "1.5.10"
+uiTestJunit4 = "1.5.11"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -34,6 +35,7 @@ precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precomposeMolecule" }
 precompose-molecule = { module = "moe.tlaster:precompose-molecule", version.ref = "precomposeMolecule" }
 precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precomposeMolecule" }
+ui-test-junit4 = { module = "org.jetbrains.compose.ui:ui-test-junit4", version.ref = "uiTestJunit4" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
